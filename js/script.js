@@ -18,6 +18,7 @@ const payment = document.getElementById('payment');
 const ccnum = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
 const cvv = document.getElementById('cvv');
+let costTotal = 0;
 
 //Name field section! On page load, the cursor appears in the "Name" field, ready for a user to type.
 nameBox.focus();
@@ -65,12 +66,12 @@ design.addEventListener('change', (e) => {
                 } else {
                     color[i].hidden = true;
         }
-    }};
+    }}});
 
 // The total cost of selected activities correctly updates in the form when users select or deselect activities. 
 // Aiming for "exceeds" -> The user is prevented from selecting two activities that are at the same day and time.
 
-let costTotal = 0;
+
 
 activities.addEventListener('change', (e) => {
     const dataCost = parseInt(e.target.getAttribute('data-cost'));
@@ -83,7 +84,6 @@ activities.addEventListener('change', (e) => {
     }
 
 });
-})
 
 for(let i = 0; i < allCheckboxes.length; i++){ 
     allCheckboxes[i].addEventListener('focus', (e) => {
@@ -292,7 +292,7 @@ function paymentValid(){
     let validCard = cardIsValid();
     let validZip = zipcodeIsValid();
     let validcvv = cvvisValid();
-    let valid = cardIsValid && zipcodeIsValid && cvvisValid;
+    let valid = validCard && validZip && validcvv;
     return valid;
 }
 
