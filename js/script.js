@@ -264,7 +264,7 @@ function zipcodeIsValid (){
 const regexcc = /^\d{3}$/;
 let emptyCcv = document.createElement('SPAN');
 emptyCcv.innerHTML = 'CVV field cannot be left blank';
-emptyCcv.className - 'hint';
+emptyCcv.className = 'hint';
 cvv.parentElement.appendChild(emptyCcv);
 
 function cvvisValid(){
